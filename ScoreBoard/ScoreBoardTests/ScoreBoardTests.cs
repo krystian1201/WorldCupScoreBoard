@@ -97,5 +97,24 @@ namespace WorldCupScoreBoard.UnitTests
             //Act, Assert
             Assert.Throws<InvalidOperationException>(() => _scoreBoard.FinishGame("Spain", "Brazil"));
         }
+
+        [Test]
+        public void GetSummary_ReturnsGamesInProgressOrderedByTheirTotalScore()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Mexico", "Canada");
+            _scoreBoard.StartNewGame("Spain", "Brazil");
+            _scoreBoard.StartNewGame("Germany", "France");
+
+            _scoreBoard.UpdateScoreForGame("Mexico", "Canada", 0, 5);
+            _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2);
+            _scoreBoard.UpdateScoreForGame("Germany", "France", 2, 2);
+
+            //Act
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
+
+            //Assert
+            Assert.That(scoreBoardSummary, Is.EqualTo("1. Spain 10 - Brazil 2\r\n2. Mexico 0 - Canada 5\r\n3. Germany 2 - France 2"));
+        }
     }
 }
