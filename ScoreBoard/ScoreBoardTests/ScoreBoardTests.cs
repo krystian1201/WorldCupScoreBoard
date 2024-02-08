@@ -12,8 +12,8 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard = new ScoreBoard();
         }
 
-        [Test] 
-        public void GetSummary_ReturnsEmptyString_IfThereAreNoGames() 
+        [Test]
+        public void GetSummary_ReturnsEmptyString_IfThereAreNoGames()
         {
             //Act
             string scoreBoardSummary = _scoreBoard.GetSummary();
@@ -86,6 +86,16 @@ namespace WorldCupScoreBoard.UnitTests
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo(string.Empty));
+        }
+
+        [Test]
+        public void FinishGame_ThrowsException_IfThereIsNoGameBetweenSpecifiedTeams()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Mexico", "Canada");
+
+            //Act, Assert
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.FinishGame("Spain", "Brazil"));
         }
     }
 }
