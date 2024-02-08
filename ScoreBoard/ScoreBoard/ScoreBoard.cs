@@ -40,5 +40,12 @@ namespace WorldCupScoreBoard
 
             return sb.ToString();
         }
+
+        public void FinishGame(string homeTeamName, string awayTeamName)
+        {
+            var game = _scoreBoardGames.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
+
+            _scoreBoardGames.Remove(game);
+        }
     }
 }
