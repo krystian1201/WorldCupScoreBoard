@@ -24,5 +24,19 @@ namespace WorldCupScoreBoard.UnitTests
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Mexico 0 - Canada 0"));
         }
+
+        [Test]
+        public void UpdateScore_UpdatesScore()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Spain", "Brazil");
+
+            //Act
+            _scoreBoard.UpdateScore("Spain", "Brazil", 10, 2);
+            string scoreBoardSummary = _scoreBoard.GetSummary();
+
+            //Assert
+            Assert.That(scoreBoardSummary, Is.EqualTo("1. Spain 10 - Brazil 2"));
+        }
     }
 }
