@@ -22,6 +22,8 @@ namespace WorldCupScoreBoard
         {
             var sb = new StringBuilder();
 
+            _scoreBoardGames.Reverse();
+
             var gamesOrderedByTotalScore = _scoreBoardGames.OrderByDescending(g => g.GetTotalScore()).ToList();
 
             for (int i = 0; i < gamesOrderedByTotalScore.Count; i++)
@@ -35,8 +37,7 @@ namespace WorldCupScoreBoard
                 else
                 {
                     sb.Append($"{i + 1}. {game.HomeTeamName} {game.HomeTeamGoals} - {game.AwayTeamName} {game.AwayTeamGoals}");
-                }
-                
+                }   
             }
 
             return sb.ToString();
