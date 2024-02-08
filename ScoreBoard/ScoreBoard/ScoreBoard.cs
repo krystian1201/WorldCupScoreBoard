@@ -15,8 +15,7 @@ namespace WorldCupScoreBoard
         {
             var game = _scoreBoardGames.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
 
-            game.UpdateHomeTeamGoals(homeTeamGoals);
-            game.UpdateAwayTeamGoals(awayTeamGoals);
+            game.UpdateScore(homeTeamGoals, awayTeamGoals);
         }
 
         public string GetSummary()

@@ -35,14 +35,10 @@ namespace WorldCupScoreBoard
             _awayTeamGoals = 0;
         }
 
-        public void UpdateHomeTeamGoals(int goals)
+        public void UpdateScore(int homeTeamGoals, int awayTeamGoals)
         {
-            _homeTeamGoals = goals;
-        }
-
-        public void UpdateAwayTeamGoals(int goals)
-        {
-            _awayTeamGoals = goals;
+            _homeTeamGoals = homeTeamGoals;
+            _awayTeamGoals = awayTeamGoals;
         }
     }
 }
