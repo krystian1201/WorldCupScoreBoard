@@ -32,7 +32,7 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Spain", "Brazil");
 
             //Act
-            _scoreBoard.UpdateScore("Spain", "Brazil", 10, 2);
+            _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2);
             string scoreBoardSummary = _scoreBoard.GetSummary();
 
             //Assert
