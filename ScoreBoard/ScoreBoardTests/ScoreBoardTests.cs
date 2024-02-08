@@ -1,5 +1,5 @@
 ﻿
-namespace ScoreBoard.UnitTests
+namespace WorldCupScoreBoard.UnitTests
 {
     [TestFixture]
     public class ScoreBoardTests
