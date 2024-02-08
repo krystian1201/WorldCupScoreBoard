@@ -68,8 +68,11 @@ namespace WorldCupScoreBoard.UnitTests
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Mexico 0 - Canada 0"));
 
-            //Act
+            //Arrange
             _scoreBoard.FinishGame("Mexico", "Canada");
+
+            //Act
+            scoreBoardSummary = _scoreBoard.GetSummary();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo(string.Empty));
