@@ -12,6 +12,16 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard = new ScoreBoard();
         }
 
+        [Test] 
+        public void GetSummary_ReturnsEmptyString_IfThereAreNoGames() 
+        {
+            //Act
+            string scoreBoardSummary = _scoreBoard.GetSummary();
+
+            //Assert
+            Assert.That(scoreBoardSummary, Is.EqualTo(string.Empty));
+        }
+
         [Test]
         public void StartNewGame_ResultsInInitialScore_0_0()
         {
