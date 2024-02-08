@@ -40,5 +40,10 @@ namespace WorldCupScoreBoard
             _homeTeamGoals = homeTeamGoals;
             _awayTeamGoals = awayTeamGoals;
         }
+
+        public int GetTotalScore()
+        {
+            return _homeTeamGoals + _awayTeamGoals;
+        }
     }
 }

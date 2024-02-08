@@ -22,9 +22,11 @@ namespace WorldCupScoreBoard
         {
             var sb = new StringBuilder();
 
-            for (int i = 0; i < _scoreBoardGames.Count; i++)
+            var gamesOrderedByTotalScore = _scoreBoardGames.OrderByDescending(g => g.GetTotalScore()).ToList();
+
+            for (int i = 0; i < gamesOrderedByTotalScore.Count; i++)
             {
-                var game = _scoreBoardGames[i];
+                var game = gamesOrderedByTotalScore[i];
 
                 if (i < _scoreBoardGames.Count - 1)
                 {
