@@ -38,5 +38,15 @@ namespace WorldCupScoreBoard.UnitTests
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Spain 10 - Brazil 2"));
         }
+
+        [Test]
+        public void UpdateScore_ThrowsException_IfThereIsNoGameBetweenSpecifiedTeams()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Mexico", "Canada");
+
+            //Act, Assert
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+        }
     }
 }
