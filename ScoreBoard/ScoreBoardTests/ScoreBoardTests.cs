@@ -135,7 +135,7 @@ namespace WorldCupScoreBoard.UnitTests
             string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
-            Assert.That(scoreBoardSummary, Is.EqualTo("1. Uruguay 6 Italy 6\r\n2. Spain 10 - Brazil 2\r\n3. Mexico 0 - Canada 5\r\n4. Germany 2 - France 2"));
+            Assert.That(scoreBoardSummary, Is.EqualTo("1. Uruguay 6 - Italy 6\r\n2. Spain 10 - Brazil 2\r\n3. Mexico 0 - Canada 5\r\n4. Germany 2 - France 2"));
         }
     }
 }
