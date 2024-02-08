@@ -48,5 +48,12 @@ namespace WorldCupScoreBoard.UnitTests
             //Act, Assert
             Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
         }
+
+        [Test]
+        public void UpdateScore_ThrowsException_IfThereAreNoGamesAtAll()
+        {
+            //Act, Assert
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+        }
     }
 }
