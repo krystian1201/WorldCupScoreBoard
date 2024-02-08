@@ -13,7 +13,7 @@ namespace WorldCupScoreBoard.UnitTests
         }
 
         [Test]
-        public void StartNewGame_ReturnsInitialScore_0_0()
+        public void StartNewGame_ResultsInInitialScore_0_0()
         {
             //Arrange
             _scoreBoard.StartNewGame("Mexico", "Canada");
