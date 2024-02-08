@@ -26,7 +26,7 @@ namespace WorldCupScoreBoard.UnitTests
         }
 
         [Test]
-        public void UpdateScore_UpdatesScore()
+        public void UpdateScore_UpdatesScore_IfTheSpecifiedGameIsInProgress()
         {
             //Arrange
             _scoreBoard.StartNewGame("Spain", "Brazil");
