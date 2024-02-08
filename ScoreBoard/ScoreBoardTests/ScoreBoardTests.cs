@@ -16,7 +16,7 @@ namespace WorldCupScoreBoard.UnitTests
         public void GetSummary_ReturnsEmptyString_IfThereAreNoGames()
         {
             //Act
-            string scoreBoardSummary = _scoreBoard.GetSummary();
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo(string.Empty));
@@ -29,7 +29,7 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
             //Act
-            string scoreBoardSummary = _scoreBoard.GetSummary();
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Mexico 0 - Canada 0"));
@@ -43,7 +43,7 @@ namespace WorldCupScoreBoard.UnitTests
 
             //Act
             _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2);
-            string scoreBoardSummary = _scoreBoard.GetSummary();
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Spain 10 - Brazil 2"));
@@ -73,7 +73,7 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
             //Act
-            string scoreBoardSummary = _scoreBoard.GetSummary();
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo("1. Mexico 0 - Canada 0"));
@@ -82,7 +82,7 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.FinishGame("Mexico", "Canada");
 
             //Act
-            scoreBoardSummary = _scoreBoard.GetSummary();
+            scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
 
             //Assert
             Assert.That(scoreBoardSummary, Is.EqualTo(string.Empty));

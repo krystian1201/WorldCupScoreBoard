@@ -18,7 +18,7 @@ namespace WorldCupScoreBoard
             game.UpdateScore(homeTeamGoals, awayTeamGoals);
         }
 
-        public string GetSummary()
+        public string GetSummaryOfGames()
         {
             var sb = new StringBuilder();
 
