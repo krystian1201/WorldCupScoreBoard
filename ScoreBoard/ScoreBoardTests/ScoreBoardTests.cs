@@ -42,17 +42,23 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
             //Act, Assert
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Canada"));
+            var ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Canada"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
 
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Spain"));
+            ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Spain"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
 
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Spain", "Canada"));
+            ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Spain", "Canada"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
 
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Canada", "Mexico"));
+            ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Canada", "Mexico"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
 
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Spain", "Mexico"));
+            ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Spain", "Mexico"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
 
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Canada", "Spain"));
+            ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Canada", "Spain"));
+            Assert.That(ex.Message, Is.EqualTo("Cannot start a game. At least one of the specified teams have already a game in progress."));
         }
 
         [Test]
