@@ -36,6 +36,20 @@ namespace WorldCupScoreBoard.UnitTests
         }
 
         [Test]
+        public void StartNewGame_ThrowsException_IfTheGameBetweenAnyGivenTeamIsInProgress()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Mexico", "Canada");
+
+            //Act
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Canada"));
+
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Spain"));
+
+            Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Spain", "Canada"));
+        }
+
+        [Test]
         public void UpdateScore_UpdatesScore_IfTheSpecifiedGameIsInProgress()
         {
             //Arrange
