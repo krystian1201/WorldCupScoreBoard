@@ -11,7 +11,7 @@ namespace WorldCupScoreBoard
             _gamesInProgress.Add(new Game(homeTeamName, awayTeamName));
         }
 
-        public void UpdateScoreForGame(string homeTeamName, string awayTeamName, int homeTeamGoals, int awayTeamGoals) 
+        public void UpdateScoreForGame(string homeTeamName, string awayTeamName, uint homeTeamGoals, uint awayTeamGoals) 
         {
             try
             {

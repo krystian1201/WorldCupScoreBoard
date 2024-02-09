@@ -15,14 +15,14 @@ namespace WorldCupScoreBoard
             get { return _awayTeamName; }
         }
 
-        private int _homeTeamGoals;
-        internal int HomeTeamGoals
+        private uint _homeTeamGoals;
+        internal uint HomeTeamGoals
         {
             get { return _homeTeamGoals; }
         }
         
-        private int _awayTeamGoals;
-        internal int AwayTeamGoals
+        private uint _awayTeamGoals;
+        internal uint AwayTeamGoals
         {
             get { return _awayTeamGoals; }
         }
@@ -35,13 +35,13 @@ namespace WorldCupScoreBoard
             _awayTeamGoals = 0;
         }
 
-        internal void UpdateScore(int homeTeamGoals, int awayTeamGoals)
+        internal void UpdateScore(uint homeTeamGoals, uint awayTeamGoals)
         {
             _homeTeamGoals = homeTeamGoals;
             _awayTeamGoals = awayTeamGoals;
         }
 
-        internal int GetTotalScore()
+        internal uint GetTotalScore()
         {
             return _homeTeamGoals + _awayTeamGoals;
         }
