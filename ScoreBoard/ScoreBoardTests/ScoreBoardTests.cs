@@ -56,14 +56,18 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
             //Act, Assert
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+            var ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+
+            Assert.That(ex.Message, Is.EqualTo("Cannot update score. There is no ongoing game between specified teams."));
         }
 
         [Test]
         public void UpdateScore_ThrowsException_IfThereAreNoGamesAtAll()
         {
             //Act, Assert
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+            var ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.UpdateScoreForGame("Spain", "Brazil", 10, 2));
+
+            Assert.That(ex.Message, Is.EqualTo("Cannot update score. There is no ongoing game between specified teams."));
         }
 
         [Test]
@@ -95,7 +99,9 @@ namespace WorldCupScoreBoard.UnitTests
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
             //Act, Assert
-            Assert.Throws<InvalidOperationException>(() => _scoreBoard.FinishGame("Spain", "Brazil"));
+            var ex = Assert.Throws<InvalidOperationException>(() => _scoreBoard.FinishGame("Spain", "Brazil"));
+
+            Assert.That(ex.Message, Is.EqualTo("Cannot finish game. There is no ongoing game between specified teams."));
         }
 
         [Test]

@@ -13,9 +13,16 @@ namespace WorldCupScoreBoard
 
         public void UpdateScoreForGame(string homeTeamName, string awayTeamName, int homeTeamGoals, int awayTeamGoals) 
         {
-            var game = _gamesInProgress.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
+            try
+            {
+                var game = _gamesInProgress.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
 
-            game.UpdateScore(homeTeamGoals, awayTeamGoals);
+                game.UpdateScore(homeTeamGoals, awayTeamGoals);
+            }
+            catch (InvalidOperationException)
+            {
+                throw new InvalidOperationException($"Cannot update score. There is no ongoing game between specified teams.");
+            }
         }
 
         public string GetSummaryOfGames()
@@ -45,9 +52,16 @@ namespace WorldCupScoreBoard
 
         public void FinishGame(string homeTeamName, string awayTeamName)
         {
-            var game = _gamesInProgress.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
+            try
+            {
+                var game = _gamesInProgress.First(g => g.HomeTeamName == homeTeamName && g.AwayTeamName == awayTeamName);
 
-            _gamesInProgress.Remove(game);
+                _gamesInProgress.Remove(game);
+            }
+            catch (InvalidOperationException)
+            {
+                throw new InvalidOperationException($"Cannot finish game. There is no ongoing game between specified teams.");
+            }  
         }
     }
 }
