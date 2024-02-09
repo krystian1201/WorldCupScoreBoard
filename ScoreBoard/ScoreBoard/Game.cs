@@ -4,30 +4,30 @@ namespace WorldCupScoreBoard
     internal class Game
     {
         private string _homeTeamName;
-        public string HomeTeamName  
+        internal string HomeTeamName  
         {
             get { return _homeTeamName; }    
         } 
 
         private string _awayTeamName;
-        public string AwayTeamName
+        internal string AwayTeamName
         {
             get { return _awayTeamName; }
         }
 
         private int _homeTeamGoals;
-        public int HomeTeamGoals
+        internal int HomeTeamGoals
         {
             get { return _homeTeamGoals; }
         }
         
         private int _awayTeamGoals;
-        public int AwayTeamGoals
+        internal int AwayTeamGoals
         {
             get { return _awayTeamGoals; }
         }
 
-        public Game(string homeTeam, string awayTeam)
+        internal Game(string homeTeam, string awayTeam)
         {
             _homeTeamName  = homeTeam;
             _awayTeamName = awayTeam;
@@ -35,13 +35,13 @@ namespace WorldCupScoreBoard
             _awayTeamGoals = 0;
         }
 
-        public void UpdateScore(int homeTeamGoals, int awayTeamGoals)
+        internal void UpdateScore(int homeTeamGoals, int awayTeamGoals)
         {
             _homeTeamGoals = homeTeamGoals;
             _awayTeamGoals = awayTeamGoals;
         }
 
-        public int GetTotalScore()
+        internal int GetTotalScore()
         {
             return _homeTeamGoals + _awayTeamGoals;
         }
