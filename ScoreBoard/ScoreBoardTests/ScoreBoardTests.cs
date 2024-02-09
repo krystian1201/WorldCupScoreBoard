@@ -119,6 +119,29 @@ namespace WorldCupScoreBoard.UnitTests
         }
 
         [Test]
+        public void FinishGame_ShouldBeAbleToRemoveGameNotNecesarilyInTheOrderItWasStarted()
+        {
+            //Arrange
+            _scoreBoard.StartNewGame("Mexico", "Canada");
+            _scoreBoard.StartNewGame("Spain", "Brazil");
+            _scoreBoard.StartNewGame("Germany", "France");
+
+
+            //Act
+            string scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
+
+            //Assert
+            Assert.That(scoreBoardSummary, Is.EqualTo("1. Germany 0 - France 0\r\n2. Spain 0 - Brazil 0\r\n3. Mexico 0 - Canada 0"));
+
+            //Act
+            _scoreBoard.FinishGame("Spain", "Brazil");
+            scoreBoardSummary = _scoreBoard.GetSummaryOfGames();
+
+            //Assert
+            Assert.That(scoreBoardSummary, Is.EqualTo("1. Germany 0 - France 0\r\n2. Mexico 0 - Canada 0"));
+        }
+
+        [Test]
         public void FinishGame_ThrowsException_IfThereIsNoGameBetweenSpecifiedTeams()
         {
             //Arrange
