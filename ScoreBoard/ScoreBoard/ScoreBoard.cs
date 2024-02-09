@@ -39,9 +39,10 @@ namespace WorldCupScoreBoard
         {
             var sb = new StringBuilder();
 
-            _gamesInProgress.Reverse();
+            var gamesCopy = _gamesInProgress.ToList();
+            gamesCopy.Reverse();
 
-            var gamesOrdered = _gamesInProgress.OrderByDescending(g => g.GetTotalScore()).ToList();
+            var gamesOrdered = gamesCopy.OrderByDescending(g => g.GetTotalScore()).ToList();
 
             for (int i = 0; i < gamesOrdered.Count; i++)
             {
