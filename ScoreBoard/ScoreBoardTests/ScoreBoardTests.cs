@@ -41,7 +41,7 @@ namespace WorldCupScoreBoard.UnitTests
             //Arrange
             _scoreBoard.StartNewGame("Mexico", "Canada");
 
-            //Act
+            //Act, Assert
             Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Canada"));
 
             Assert.Throws<InvalidOperationException>(() => _scoreBoard.StartNewGame("Mexico", "Spain"));
